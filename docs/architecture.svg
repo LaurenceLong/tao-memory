@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="390" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+  <title id="title">TaoMemory attention flow</title>
+  <desc id="desc">New query key and value inputs serve exact local attention. Retired blocks form fine memory matrices. Coarse descriptors route queries to fine memories. Local and selected fine outputs are fused into head outputs. State is owned per request and layer.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#526477"/></marker></defs>
+  <rect width="1040" height="390" rx="16" fill="#f5f8fc"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172c43">
+    <text x="30" y="39" font-size="24" font-weight="700">Exact recent context. Routed compressed history.</text>
+    <text x="30" y="64" font-size="14" fill="#526477">Recommended coarse-index-only preset · one state per request and layer</text>
+    <g stroke="#c9d5e3" stroke-width="1.5">
+      <rect x="30" y="124" width="177" height="75" rx="10" fill="#ffffff"/>
+      <rect x="266" y="108" width="222" height="95" rx="10" fill="#e6f1ff"/>
+      <rect x="266" y="253" width="222" height="89" rx="10" fill="#e8f4ef"/>
+      <rect x="548" y="253" width="220" height="89" rx="10" fill="#e8f4ef"/>
+      <rect x="548" y="108" width="220" height="95" rx="10" fill="#fff1d9"/>
+      <rect x="827" y="147" width="179" height="103" rx="10" fill="#ffffff"/>
+    </g>
+    <g font-size="17" font-weight="700" text-anchor="middle">
+      <text x="119" y="152">New Q / K / V</text>
+      <text x="377" y="138">Exact local SDPA</text>
+      <text x="377" y="283">Fine memory matrices</text>
+      <text x="658" y="283">Coarse descriptors</text>
+      <text x="658" y="138">Selected fine read</text>
+      <text x="916" y="179">Learned fusion</text>
+    </g>
+    <g font-size="13" text-anchor="middle" fill="#526477">
+      <text x="119" y="176">Caller-owned projections</text>
+      <text x="377" y="160">512 retained + serving extension</text>
+      <text x="377" y="183">Read before retiring oldest block</text>
+      <text x="377" y="307">256 tokens → per-head matrix</text>
+      <text x="377" y="328">All fine matrices remain resident</text>
+      <text x="658" y="307">Group eight fine blocks</text>
+      <text x="658" y="328">Routing only; no coarse value branch</text>
+      <text x="658" y="160">Fresh query-dependent read</text>
+      <text x="658" y="183">Memo + optional regional Graph</text>
+      <text x="916" y="204">Local + compressed history</text>
+      <text x="916" y="230">Head outputs to caller</text>
+    </g>
+    <g fill="none" stroke="#526477" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M207 151 H266"/><path d="M377 203 V253"/>
+      <path d="M488 298 H548"/><path d="M658 253 V203"/>
+      <path d="M488 265 L550 194"/><path d="M207 130 L235 90 H658 V108"/>
+      <path d="M488 156 H510 V218 H827"/><path d="M768 156 H797 V178 H827"/>
+    </g>
+    <text x="392" y="234" font-size="12" fill="#526477">retired blocks</text>
+    <text x="676" y="234" font-size="12" fill="#526477">select</text>
+    <text x="31" y="372" font-size="12" fill="#526477">Conceptual dataflow; arrows do not imply identical training and streaming routing schedules. Cache grows with context.</text>
+  </g>
+</svg>

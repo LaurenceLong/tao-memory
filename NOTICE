@@ -1,0 +1,14 @@
+TaoMemory
+Copyright (c) 2026 TaoMemory contributors
+
+Distributed under the MIT License. Existing notices retained in LICENSE and
+tao_attention/LICENSE include Andrej Karpathy (2022, 2025). The development
+lineage used NanoChat/nanoGPT conventions for caller-owned Q/K/V transforms,
+local causal attention and integration interfaces. This distribution contains
+no NanoChat/nanoGPT model, tokenizer, data loader, checkpoint or training runner.
+Upstream projects: https://github.com/karpathy/nanochat and
+https://github.com/karpathy/nanoGPT (MIT).
+
+PyTorch and Triton are external dependencies, not vendored code. Their licenses
+and third-party notices are distributed by those projects. No pretrained weights,
+datasets, private evaluation bundles or third-party model assets are included.
